@@ -1,0 +1,14 @@
+[book]
+authors = ["Wildlife Veterinary Research Team"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Wildlife Veterinary Deep Research & Analysis Guide"
+description = "A comprehensive reference for wildlife veterinarians covering clinical practice, disease surveillance, pharmacology, conservation medicine, and research methodologies."
+
+[build]
+build-dir = "book"
+
+[output.html]
+default-theme = "navy"
+preferred-dark-theme = "navy"
