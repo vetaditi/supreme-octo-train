@@ -1,20 +1,31 @@
-# Wildlife Health Monitoring API Collection Documentation
+# ᚹ Wildlife Health Monitoring API Collection Documentation
 
 A comprehensive collection for integrating wildlife health monitoring APIs including biodiversity data, animal tracking, species observations, conservation status, and environmental data.
+
+## Rune Symbol Key
+
+| Rune | Name | Meaning | API |
+|---|---|---|---|
+| ᚠ | Fehu | Wealth & abundance | GBIF |
+| ᛉ | Algiz | Protection & wildlife | iNaturalist |
+| ᚱ | Raidho | Journey & movement | Movebank |
+| ᛏ | Tiwaz | Justice & protection | IUCN Red List |
+| ᛊ | Sowilo | Sun & environment | NASA Earthdata |
+| ᚲ | Kenaz | Torch & knowledge | Authentication |
 
 ---
 
 ## Table of Contents
 
-- [GBIF - Biodiversity Data](#gbif---biodiversity-data)
-- [iNaturalist - Wildlife Observations](#inaturalist---wildlife-observations)
-- [Movebank - Animal Tracking](#movebank---animal-tracking)
-- [IUCN Red List - Conservation Status](#iucn-red-list---conservation-status)
-- [NASA Earthdata - Environmental Data](#nasa-earthdata---environmental-data)
+- [ᚠ GBIF - Biodiversity Data](#gbif---biodiversity-data)
+- [ᛉ iNaturalist - Wildlife Observations](#inaturalist---wildlife-observations)
+- [ᚱ Movebank - Animal Tracking](#movebank---animal-tracking)
+- [ᛏ IUCN Red List - Conservation Status](#iucn-red-list---conservation-status)
+- [ᛊ NASA Earthdata - Environmental Data](#nasa-earthdata---environmental-data)
 
 ---
 
-## GBIF - Biodiversity Data
+## ᚠ GBIF - Biodiversity Data
 
 Global Biodiversity Information Facility API for species occurrence and biodiversity data. No authentication required.
 
@@ -38,7 +49,7 @@ Global Biodiversity Information Facility API for species occurrence and biodiver
 
 ---
 
-## iNaturalist - Wildlife Observations
+## ᛉ iNaturalist - Wildlife Observations
 
 iNaturalist API for wildlife observations and species identification. Read operations are public.
 
@@ -56,7 +67,7 @@ iNaturalist API for wildlife observations and species identification. Read opera
 
 ---
 
-## Movebank - Animal Tracking
+## ᚱ Movebank - Animal Tracking
 
 Requires **Basic Auth** (`{{movebank_username}}` / `{{movebank_password}}`).
 
@@ -74,7 +85,7 @@ Requires **Basic Auth** (`{{movebank_username}}` / `{{movebank_password}}`).
 
 ---
 
-## IUCN Red List - Conservation Status
+## ᛏ IUCN Red List - Conservation Status
 
 Requires `{{iucn_api_token}}` as a query parameter.
 
@@ -92,7 +103,7 @@ Requires `{{iucn_api_token}}` as a query parameter.
 
 ---
 
-## NASA Earthdata - Environmental Data
+## ᛊ NASA Earthdata - Environmental Data
 
 Requires NASA Earthdata credentials for some endpoints.
 
@@ -110,12 +121,12 @@ Requires NASA Earthdata credentials for some endpoints.
 
 ---
 
-## Authentication Summary
+## ᚲ Authentication Summary
 
-| API | Auth Type | Variable(s) |
-|---|---|---|
-| GBIF | None | - |
-| iNaturalist | None (read) | - |
-| Movebank | Basic Auth | `{{movebank_username}}`, `{{movebank_password}}` |
-| IUCN Red List | API Token | `{{iucn_api_token}}` |
-| NASA Earthdata | Earthdata credentials | - |
+| Rune | API | Auth Type | Variable(s) |
+|---|---|---|---|
+| ᚠ | GBIF | None | - |
+| ᛉ | iNaturalist | None (read) | - |
+| ᚱ | Movebank | Basic Auth | `{{movebank_username}}`, `{{movebank_password}}` |
+| ᛏ | IUCN Red List | API Token | `{{iucn_api_token}}` |
+| ᛊ | NASA Earthdata | Earthdata credentials | - |

@@ -1,12 +1,14 @@
-# Authentication Summary
+# ᚲ Authentication Summary
 
-| API | Auth Type | Variable(s) |
-|---|---|---|
-| GBIF | None | - |
-| iNaturalist | None (read) | - |
-| Movebank | Basic Auth | `{{movebank_username}}`, `{{movebank_password}}` |
-| IUCN Red List | API Token | `{{iucn_api_token}}` |
-| NASA Earthdata | Earthdata credentials | - |
+> ᚲ **Kenaz** — *torch & knowledge*: illuminates the keys and credentials needed to access each API.
+
+| Rune | API | Auth Type | Variable(s) |
+|---|---|---|---|
+| ᚠ | GBIF | None | - |
+| ᛉ | iNaturalist | None (read) | - |
+| ᚱ | Movebank | Basic Auth | `{{movebank_username}}`, `{{movebank_password}}` |
+| ᛏ | IUCN Red List | API Token | `{{iucn_api_token}}` |
+| ᛊ | NASA Earthdata | Earthdata credentials | - |
 
 ## Setup Notes
 

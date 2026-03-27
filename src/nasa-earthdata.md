@@ -1,8 +1,10 @@
-# NASA Earthdata - Environmental Data
+# ᛊ NASA Earthdata - Environmental Data
+
+> ᛊ **Sowilo** — *sun & vital force*: reflects solar observation and the life-giving environmental data from above.
 
 NASA Common Metadata Repository (CMR) API for environmental and climate datasets. Some endpoints require NASA Earthdata credentials.
 
-## 1. Search Environmental Datasets
+## ᛊ 1. Search Environmental Datasets
 
 - **Endpoint**: `GET https://cmr.earthdata.nasa.gov/search/collections.json`
 
@@ -12,7 +14,7 @@ NASA Common Metadata Repository (CMR) API for environmental and climate datasets
 GET https://cmr.earthdata.nasa.gov/search/collections.json?keyword=wildlife habitat&page_size=10
 ```
 
-## 2. Search Data Granules
+## ᛊ 2. Search Data Granules
 
 - **Endpoint**: `GET https://cmr.earthdata.nasa.gov/search/granules.json`
 
@@ -22,7 +24,7 @@ GET https://cmr.earthdata.nasa.gov/search/collections.json?keyword=wildlife habi
 GET https://cmr.earthdata.nasa.gov/search/granules.json?short_name=MOD13A1&page_size=10
 ```
 
-## 3. Get Climate Data
+## ᛊ 3. Get Climate Data
 
 - **Endpoint**: `GET https://cmr.earthdata.nasa.gov/search/collections.json`
 
