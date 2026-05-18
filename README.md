@@ -1,114 +1,174 @@
-# Codex CLI
+# Wildlife Health Monitoring API Documentation
 
-Codex CLI is OpenAI's coding agent that you can run locally from your terminal. It can read, change, and run code on your machine in the selected directory.
-It's [open source](https://github.com/openai/codex) and built in Rust for speed and efficiency.
+A structured reference collection for integrating five public wildlife and
+environmental monitoring APIs into One Health surveillance systems.
 
-ChatGPT Plus, Pro, Business, Edu, and Enterprise plans include Codex. Learn more about [what's included](https://developers.openai.com/codex/pricing).
-
-<YouTubeEmbed
-  title="Codex CLI overview"
-  videoId="iqNzfK4_meQ"
-  class="max-w-md"
-/>
-<br />
-
-## CLI setup
-
-<CliSetupSteps client:load />
-
-The Codex CLI is available on macOS, Windows, and Linux. On Windows, run Codex
-  natively in PowerShell with the Windows sandbox, or use WSL2 when you need a
-  Linux-native environment. For setup details, see the{" "}
-  <a href="/codex/windows">Windows setup guide</a>.
-
-If you're new to Codex, read the [best practices guide](https://developers.openai.com/codex/learn/best-practices).
+| | |
+|---|---|
+| **Author** | Dr. Aditi Sharma |
+| **Affiliation** | Council for Environment and Sustainable Development (CESD), Dehradun, Uttarakhand, India |
+| **Academic context** | MSc One Health
+| **Professional context** | Wildlife Veterinarian; former Senior Veterinary Officer, Rajaji Tiger Reserve, Uttarakhand |
+| **Year** | 2026 |
+| **License** | Apache 2.0 — see [LICENSE](./LICENSE) |
 
 ---
 
-## Work with the Codex CLI
+## Purpose
 
-<BentoContainer>
-  <BentoContent href="/codex/cli/features#running-in-interactive-mode">
+Wildlife health surveillance requires integrating ecological and environmental
+data alongside clinical and epidemiological reporting. This documentation
+collection maps the five most relevant public APIs for that purpose —
+covering species occurrence, animal movement, conservation status, community
+observations, and environmental datasets.
 
-### Run Codex interactively
+It was developed as a reference layer for
+[ZoonosesLink](https://github.com/vetaditi/zoonoseslink), an India zoonoses
+cross-reporting system aligned with the National One Health Programme for
+Prevention and Control of Zoonoses (NOHP-PCZ), NCDC/MoHFW, Government of India.
 
-Run `codex` to start an interactive terminal UI (TUI) session.
+---
 
-  </BentoContent>
-  <BentoContent href="/codex/cli/features#models-reasoning">
+## APIs Covered
 
-### Control model and reasoning
+| API | Provider | Purpose | Auth |
+|-----|----------|---------|------|
+| [GBIF](./src/gbif.md) | Global Biodiversity Information Facility | Species occurrence and biodiversity records | None |
+| [iNaturalist](./src/inaturalist.md) | iNaturalist / California Academy of Sciences | Community wildlife observations and species ID | None (read) |
+| [Movebank](./src/movebank.md) | Max Planck Institute of Animal Behavior | Animal tracking and movement corridor data | Basic Auth |
+| [IUCN Red List](./src/iucn.md) | International Union for Conservation of Nature | Conservation status and population trend | API Token |
+| [NASA Earthdata](./src/nasa-earthdata.md) | NASA / EOSDIS | Land cover, NDVI, land surface temperature | Earthdata credentials |
 
-Use `/model` to switch between GPT-5.4, GPT-5.3-Codex, and other available models, or adjust reasoning levels.
+**Coverage:** 15 endpoints across 5 APIs.
 
-  </BentoContent>
-  <BentoContent href="/codex/cli/features#image-inputs">
+---
 
-### Image inputs
+## One Health Relevance
 
-Attach screenshots or design specs so Codex reads them alongside your prompt.
+Each API addresses a distinct surveillance gap at the human–wildlife–livestock
+interface:
 
-  </BentoContent>
-  <BentoContent href="/codex/cli/features#image-generation">
+- **GBIF + iNaturalist** — establish presence/absence of reservoir and vector
+  species near an outbreak location; support ecological plausibility assessment
+- **Movebank** — identify movement corridors of key reservoir species (bats,
+  NHPs, migratory birds); relevant for Nipah, KFD, avian influenza
+- **IUCN Red List** — flag threatened species involvement in outbreak events,
+  linking disease response to conservation obligations
+- **NASA Earthdata** — characterise habitat type, vegetation index, and
+  surface temperature at the outbreak site; supports vector activity modelling
+  and land-use change analysis
 
-### Image generation
+---
 
-Generate or edit images directly in the CLI, and attach references when you want Codex to iterate on an existing asset.
+## Repository Structure
 
-  </BentoContent>
+```
+supreme-octo-train/
+│
+├── wildlife-health-monitoring-api.md   ← Single-file flat reference (all 15 endpoints)
+├── book.toml                           ← mdBook configuration
+├── README.md                           ← This file
+├── LICENSE                             ← Apache 2.0
+│
+└── src/
+    ├── SUMMARY.md                      ← mdBook table of contents
+    ├── introduction.md                 ← Overview and use cases
+    ├── authentication.md               ← Credentials setup for all APIs
+    ├── gbif.md                         ← GBIF endpoints (3)
+    ├── inaturalist.md                  ← iNaturalist endpoints (3)
+    ├── movebank.md                     ← Movebank endpoints (3)
+    ├── iucn.md                         ← IUCN Red List endpoints (3)
+    └── nasa-earthdata.md               ← NASA CMR endpoints (3)
+```
 
-  <BentoContent href="/codex/cli/features#running-local-code-review">
+---
 
-### Run local code review
+## Building the mdBook Site
 
-Get your code reviewed by a separate Codex agent before you commit or push your changes.
+This documentation can be rendered as a static website using
+[mdBook](https://rust-lang.github.io/mdBook/).
 
-  </BentoContent>
+```bash
+# Install mdBook (requires Rust)
+cargo install mdbook
 
-  <BentoContent href="/codex/subagents">
+# Build static site
+mdbook build
 
-### Use subagents
+# Serve locally with live reload
+mdbook serve
+# Opens at http://localhost:3000
+```
 
-Use subagents to parallelize complex tasks.
+The built site can be deployed to GitHub Pages from the `gh-pages` branch or
+the `/docs` folder.
 
-  </BentoContent>
+---
 
-  <BentoContent href="/codex/cli/features#web-search">
+## Authentication Quick Reference
 
-### Web search
+| API | Method | Setup |
+|-----|--------|-------|
+| GBIF | None required | — |
+| iNaturalist | None required (read) | — |
+| Movebank | HTTP Basic Auth | Register at [movebank.org](https://www.movebank.org) |
+| IUCN Red List | `?token=` query param | Request at [apiv3.iucnredlist.org/api/v3/token](https://apiv3.iucnredlist.org/api/v3/token) |
+| NASA Earthdata | Earthdata credentials (granule download only) | Register at [urs.earthdata.nasa.gov](https://urs.earthdata.nasa.gov) |
 
-Use Codex to search the web and get up-to-date information for your task.
+---
 
-  </BentoContent>
+## How to Cite This Work
 
-  <BentoContent href="/codex/cli/features#working-with-codex-cloud">
+If you use, adapt, or build on this documentation, the following citation is
+required under the Apache 2.0 license attribution terms:
 
-### Codex Cloud tasks
+**Academic / report citation:**
+> Sharma, A. (2026). *Wildlife Health Monitoring API Documentation: A reference
+> collection for One Health surveillance systems.* Council for Environment and
+> Sustainable Development, Dehradun, India.
+> Available at: https://github.com/vetaditi/supreme-octo-train
 
-Launch a Codex Cloud task, choose environments, and apply the resulting diffs without leaving your terminal.
+**BibTeX:**
+```bibtex
+@misc{sharma2026wildlifeapi,
+  author       = {Sharma, Aditi},
+  title        = {Wildlife Health Monitoring API Documentation:
+                  A reference collection for One Health surveillance systems},
+  year         = {2026},
+  institution  = {Council for Environment and Sustainable Development, Dehradun, India},
+  url          = {https://github.com/vetaditi/supreme-octo-train},
+  note         = {Licensed under Apache 2.0}
+}
+```
 
-  </BentoContent>
+---
 
-  <BentoContent href="/codex/noninteractive">
+## Related Repository
 
-### Scripting Codex
+**ZoonosesLink** — India Zoonoses Cross-Reporting API  
+`https://github.com/vetaditi/zoonoseslink`
 
-Automate repeatable workflows by scripting Codex with the `exec` command.
+Integrates these five APIs as a background enrichment module to provide
+ecological context for each zoonotic disease event reported through the
+NOHP-PCZ surveillance chain (IDSP/IHIP ↔ NADRS/NDLM → SLZC/DLZC).
 
-  </BentoContent>
-  <BentoContent href="/codex/mcp">
+---
 
-### Model Context Protocol
+## License
 
-Give Codex access to additional third-party tools and context with Model Context Protocol (MCP).
+Copyright © 2026 Dr. Aditi Sharma  
+Council for Environment and Sustainable Development (CESD)  
+Dehradun, Uttarakhand, India
 
-  </BentoContent>
-  
-  <BentoContent href="/codex/cli/features#approval-modes">
+Licensed under the **Apache License, Version 2.0**.
+You may not use this work except in compliance with the License.
+A copy of the License is included in this repository: [LICENSE](./LICENSE)
+and is available at http://www.apache.org/licenses/LICENSE-2.0
 
-### Approval modes
+Unless required by applicable law or agreed to in writing, content distributed
+under this License is distributed on an **"AS IS" BASIS, WITHOUT WARRANTIES
+OR CONDITIONS OF ANY KIND**, either express or implied.
 
-Choose the approval mode that matches your comfort level before Codex edits or runs commands.
-
-  </BentoContent>
-</BentoContainer>
+> **Attribution is mandatory.** Any use, adaptation, or redistribution of this
+> work must credit Dr. Aditi Sharma and the Council for Environment and
+> Sustainable Development, Dehradun, as the originating author and institution.
