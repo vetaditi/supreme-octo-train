@@ -1,8 +1,10 @@
-# iNaturalist - Wildlife Observations
+# ᛉ iNaturalist - Wildlife Observations
+
+> ᛉ **Algiz** — *protection & wildlife*: reflects the guardianship of wild species through community observation.
 
 iNaturalist API for wildlife observations and species identification. Read operations are public.
 
-## 1. Get Observations
+## ᛉ 1. Get Observations
 
 - **Endpoint**: `GET https://api.inaturalist.org/v1/observations`
 
@@ -12,7 +14,7 @@ iNaturalist API for wildlife observations and species identification. Read opera
 GET https://api.inaturalist.org/v1/observations?taxon_name=Panthera leo&per_page=10
 ```
 
-## 2. Get Species Identifications
+## ᛉ 2. Get Species Identifications
 
 - **Endpoint**: `GET https://api.inaturalist.org/v1/identifications`
 
@@ -22,7 +24,7 @@ GET https://api.inaturalist.org/v1/observations?taxon_name=Panthera leo&per_page
 GET https://api.inaturalist.org/v1/identifications?taxon_id=12345&per_page=10
 ```
 
-## 3. Get Observation Details
+## ᛉ 3. Get Observation Details
 
 - **Endpoint**: `GET https://api.inaturalist.org/v1/observations/{{observationId}}`
 - **Description**: Retrieve detailed information about a specific observation.

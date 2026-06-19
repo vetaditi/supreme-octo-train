@@ -1,10 +1,12 @@
-# Movebank - Animal Tracking
+# ᚱ Movebank - Animal Tracking
+
+> ᚱ **Raidho** — *journey & movement*: reflects the paths and migrations of tracked animals across the landscape.
 
 Movebank API for animal movement and tracking data.
 
 **Authentication:** Requires Basic Auth (`{{movebank_username}}` / `{{movebank_password}}`).
 
-## 1. Get Studies
+## ᚱ 1. Get Studies
 
 - **Endpoint**: `GET https://www.movebank.org/movebank/service/direct-read`
 
@@ -14,7 +16,7 @@ Movebank API for animal movement and tracking data.
 GET https://www.movebank.org/movebank/service/direct-read?entity_type=study
 ```
 
-## 2. Get Animals in Study
+## ᚱ 2. Get Animals in Study
 
 - **Endpoint**: `GET https://www.movebank.org/movebank/service/direct-read`
 
@@ -24,7 +26,7 @@ GET https://www.movebank.org/movebank/service/direct-read?entity_type=study
 GET https://www.movebank.org/movebank/service/direct-read?entity_type=individual&study_id={{study_id}}
 ```
 
-## 3. Get Animal Tracks
+## ᚱ 3. Get Animal Tracks
 
 - **Endpoint**: `GET https://www.movebank.org/movebank/service/direct-read`
 
